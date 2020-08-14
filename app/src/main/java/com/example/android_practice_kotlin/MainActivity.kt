@@ -5,15 +5,15 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
-    lateinit var button: Button
-    lateinit var buttonLeft: Button
-    lateinit var buttonRight: Button
-    lateinit var buttonUp: Button
-    lateinit var buttonDown: Button
-    lateinit var buttonFigure: Button
-    lateinit var buttonColor: Button
-    lateinit var dv: DrawView
-    var isTrue: Boolean = false
+    private lateinit var button: Button //lateinit
+    private lateinit var buttonLeft: Button
+    private lateinit var buttonRight: Button
+    private lateinit var buttonUp: Button
+    private lateinit var buttonDown: Button
+    private lateinit var buttonFigure: Button
+    private lateinit var buttonColor: Button
+    private lateinit var dv: DrawView
+    private var isTrue: Boolean = false
 
 
 

@@ -4,12 +4,8 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 
-open class Square(point: Point, edgeSize: Float): Figure(point), ColorChangeable {
+open class Square(point: Point, var edgeSize: Float = 100f): Figure(point), ColorChangeable {
     var paint: Paint = Paint()
-    var edgeSize: Float = 100f
-    set(value) {
-        field = value
-    }
 
     override fun draw(canvas: Canvas) {
         canvas.drawRect(
@@ -21,19 +17,19 @@ open class Square(point: Point, edgeSize: Float): Figure(point), ColorChangeable
 
     override fun changeColor(color: Int) {
         if (color == 1) {
-            paint.setColor(Color.BLUE)
+            paint.color = Color.BLUE
         }
 
         if (color == 2) {
-            paint.setColor(Color.BLACK)
+            paint.color = Color.BLACK
         }
 
         if (color == 3) {
-            paint.setColor(Color.GREEN)
+            paint.color = Color.GREEN
         }
 
         if (color == 4) {
-            paint.setColor(Color.RED)
+            paint.color = Color.RED
         }
     }
 }

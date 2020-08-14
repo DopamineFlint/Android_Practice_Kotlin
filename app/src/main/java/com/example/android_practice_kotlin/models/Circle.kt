@@ -6,13 +6,10 @@ import android.graphics.Paint
 
 open class Circle(point: Point, rad: Float = 1f): Figure(point) {
     var paint: Paint = Paint()
-    var radius: Float = rad
-    set(value) {
-        field = value
-    }
+    private var radius: Float = rad
 
     override fun draw(canvas: Canvas) {
-        paint.setColor(Color.BLUE)
+        paint.color = Color.BLUE
         canvas.drawCircle(point.xAxis, point.yAxis, radius, paint)
     }
 }

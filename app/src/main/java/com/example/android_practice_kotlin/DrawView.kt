@@ -10,31 +10,31 @@ import androidx.annotation.RequiresApi
 import com.example.android_practice_kotlin.models.*
 
 class DrawView : View {
-    var p: Paint
+    private var p: Paint
 
     init {
         p = Paint()
     }
 
-    var xx: Float = 300f
-    var yy: Float = 300f
-    var rad: Float = 100f
-    var ovalX: Float = 60f
-    var ovalY: Float = 60f
+    private var xx: Float = 300f
+    private var yy: Float = 300f
+    private var rad: Float = 100f
+    private var ovalX: Float = 60f
+    private var ovalY: Float = 60f
 
-    var figure: Int = 1
+    private var figure: Int = 1
     var color: Int = 1
     var angle: Int = 0
         set(value) {
             field = value
             isTrue = true
         }
-    var isTrue: Boolean = true
+    private var isTrue: Boolean = true
 
-    var circle: Circle = Circle(Point(xx, yy), rad)
-    var square: Square = Square(Point(xx, yy), 20f)
-    var rectangle: Rectangle = Rectangle(Point(xx, yy), 100f, 150f)
-    var ellipse: Ellipse = Ellipse(Point(xx, yy), 100f, 150f)
+    private var circle: Circle = Circle(Point(xx, yy), rad)
+    private var square: Square = Square(Point(xx, yy), 20f)
+    private var rectangle: Rectangle = Rectangle(Point(xx, yy), 100f, 150f)
+    private var ellipse: Ellipse = Ellipse(Point(xx, yy), 100f, 150f)
 
     constructor(context: Context) : super(context)
 
@@ -49,8 +49,8 @@ class DrawView : View {
     fun init() {
         p = Paint()
 
-        Thread(Runnable() {
-                run() {
+        Thread(Runnable {
+                run {
                     while (isTrue) {
                         try {
                             if (angle == 1) { //going up
@@ -223,33 +223,25 @@ class DrawView : View {
     }
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
 
         if (figure == 1) {
-            p?.let { canvas?.drawCircle(xx, yy, rad, it) }
+            p.let { canvas.drawCircle(xx, yy, rad, it) }
         }
         if (figure == 2) {
-            p?.let { canvas?.drawOval(xx, yy, ovalX * 2, ovalY * 2, it) }
+            p.let { canvas.drawOval(xx, yy, ovalX * 2, ovalY * 2, it) }
         }
         if (figure == 3) {
-            if (canvas != null) {
-                circle.draw(canvas)
-            }
+            circle.draw(canvas)
         }
         if (figure == 4) {
-            if (canvas != null) {
-                square.draw(canvas)
-            }
+            square.draw(canvas)
         }
         if (figure == 5) {
-            if (canvas != null) {
-                ellipse.draw(canvas)
-            }
+            ellipse.draw(canvas)
         }
         if (figure == 6) {
-            if (canvas != null) {
-                rectangle.draw(canvas)
-            }
+            rectangle.draw(canvas)
         }
 
         square.changeColor(color)
