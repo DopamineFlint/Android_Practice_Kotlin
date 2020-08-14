@@ -5,8 +5,7 @@ import android.graphics.Color
 import android.os.Build
 import androidx.annotation.RequiresApi
 
-class Ellipse(point: Point, rad: Float = 1f, rad2: Float = 2f): Circle(point), ColorChangeable {
-    private var radius2: Float = rad2
+class Ellipse(point: Point, rad: Float = 1f, var rad2: Float = 2f): Circle(point), ColorChangeable {
 
     override fun changeColor(color: Int) {
         if (color == 1) {
@@ -31,8 +30,8 @@ class Ellipse(point: Point, rad: Float = 1f, rad2: Float = 2f): Circle(point), C
         canvas.drawOval(
             point.xAxis,
             point.yAxis,
-            point.xAxis + radius2*2,
-            point.yAxis + radius2*2,
+            point.xAxis + rad2*2,
+            point.yAxis + rad2*2,
             paint)
     }
 }

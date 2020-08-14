@@ -4,12 +4,11 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 
-open class Circle(point: Point, rad: Float = 1f): Figure(point) {
+open class Circle(point: Point, var rad: Float = 1f): Figure(point) {
     var paint: Paint = Paint()
-    private var radius: Float = rad
 
     override fun draw(canvas: Canvas) {
         paint.color = Color.BLUE
-        canvas.drawCircle(point.xAxis, point.yAxis, radius, paint)
+        canvas.drawCircle(point.xAxis, point.yAxis, rad, paint)
     }
 }
