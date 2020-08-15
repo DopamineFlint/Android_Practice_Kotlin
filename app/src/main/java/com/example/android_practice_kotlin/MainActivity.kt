@@ -1,18 +1,11 @@
 package com.example.android_practice_kotlin
 
 import android.os.Bundle
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var button: Button //lateinit
-    private lateinit var buttonLeft: Button
-    private lateinit var buttonRight: Button
-    private lateinit var buttonUp: Button
-    private lateinit var buttonDown: Button
-    private lateinit var buttonFigure: Button
-    private lateinit var buttonColor: Button
-    private lateinit var dv: DrawView
+
     private var isTrue: Boolean = false
 
 
@@ -21,27 +14,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        button = findViewById(R.id.button)
-        buttonRight = findViewById(R.id.buttonRight)
-        buttonLeft = findViewById(R.id.buttonLeft)
-        buttonUp = findViewById(R.id.buttonUp)
-        buttonDown = findViewById(R.id.buttonDown)
-        buttonFigure = findViewById(R.id.buttonFigure)
-        buttonColor = findViewById(R.id.buttonColor)
-        dv = findViewById(R.id.drawView)
-        dv.init()
+        drawView.init()
 
         if (isTrue) {
-            dv.setBoolToFalse()
+            drawView.setBoolToFalse()
         }
 
-        buttonUp.setOnClickListener { dv.angle = 1 }
-        buttonDown.setOnClickListener { dv.angle = 2 }
-        buttonLeft.setOnClickListener { dv.angle = 3 }
-        buttonRight.setOnClickListener { dv.angle = 4 }
-        button.setOnClickListener { dv.angle = 0 }
-        buttonColor.setOnClickListener { dv.changeColor() }
-        buttonFigure.setOnClickListener { dv.changeFigure() }
+        buttonUp.setOnClickListener { drawView.angle = 1 }
+        buttonDown.setOnClickListener { drawView.angle = 2 }
+        buttonLeft.setOnClickListener { drawView.angle = 3 }
+        buttonRight.setOnClickListener { drawView.angle = 4 }
+        button.setOnClickListener { drawView.angle = 0 }
+        buttonColor.setOnClickListener { drawView.changeColor() }
+        buttonFigure.setOnClickListener { drawView.changeFigure() }
     }
 
     override fun onDestroy() {
